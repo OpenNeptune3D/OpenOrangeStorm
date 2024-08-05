@@ -27,9 +27,9 @@ if [ "$auto_yes" = "true" ]; then
 else
     # Interactive mode for model selection
     echo "Please select your printer model:"
-    select _ in "giga"; do
+    select _ in "GIGA"; do
         case $REPLY in
-            1) model_key="giga";;
+            1) model_key="GIGA";;
             *) echo "Invalid selection. Please try again."; continue;;
         esac
         break
@@ -37,8 +37,8 @@ else
 fi
 
 # Define FLAG_LINE before generating configuration
-if [[ "$model_key" = "giga" ]]; then
-    FLAG_LINE="os-${model_key}-v3.0"
+if [[ "$model_key" = "GIGA" ]]; then
+    FLAG_LINE="${model_key}-v3.0"
 else
     return 0 
 fi
@@ -52,7 +52,7 @@ echo "DEBUG: FLAG_LINE is $FLAG_LINE"
 update_flag_file() {
     local flag_value=$1
     # Remove existing lines starting with OS (case-insensitive), then add the new line
-    sudo sed -i '/^os/I d' "$FLAG_FILE"
+    sudo sed -i '/^GIGA/I d' "$FLAG_FILE"
     echo "$flag_value" | sudo tee -a "$FLAG_FILE" > /dev/null
 }
 
