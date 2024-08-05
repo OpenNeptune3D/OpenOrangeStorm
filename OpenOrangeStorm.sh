@@ -10,7 +10,7 @@ CROWSNEST_FIX_INSTALLER="${HOME}/OpenOrangeStorm/img-config/crowsnest-lag-fix.sh
 BASE_IMAGE_INSTALLER="${HOME}/OpenOrangeStorm/img-config/base_image_configuration.sh"
 
 FLAG_FILE="/boot/.OpenOrangeStorm.txt"
-MODEL_FROM_FLAG=$(grep -E '^N4|^n4' "$FLAG_FILE")
+MODEL_FROM_FLAG=$(grep -E '^OS|^os' "$FLAG_FILE")
 KERNEL_FROM_FLAG=$(grep 'Linux' "$FLAG_FILE" | awk '{split($3,a,"-"); print a[1]}')
 
 OpenOrangeStorm_REPO="https://github.com/OpenNeptune3D/OpenOrangeStorm.git"
@@ -378,7 +378,7 @@ check_and_set_printer_model() {
     if [ -z "$MODEL_FROM_FLAG" ]; then
         echo "Model Flag is empty. Running Set Model script..."
         $HOME/OpenOrangeStorm/img-config/set-printer-model.sh
-        MODEL_FROM_FLAG=$(grep '^N4' "$FLAG_FILE")
+        MODEL_FROM_FLAG=$(grep '^OS' "$FLAG_FILE")
         if [ -z "$MODEL_FROM_FLAG" ]; then
             echo "Failed to set Model Flag. Exiting."
             exit 1
@@ -414,12 +414,12 @@ extract_model_and_motor() {
     PRINTER_CFG_SOURCE="${HOME}/OpenOrangeStorm/printer-confs/output.cfg"
 
     # Build configuration paths based on selections
-    if [[ $model_key == "n4" || $model_key == "n4pro" ]]; then
-        python3 "${HOME}/OpenOrangeStorm/printer-confs/generate_conf.py" "${model_key}" "${motor_current}" >/dev/null 2>&1 && sync
-        sleep 1
-    else
+    if [[ $model_key == "giga" ]]; then
         python3 "${HOME}/OpenOrangeStorm/printer-confs/generate_conf.py" "${model_key}" >/dev/null 2>&1 && sync
         sleep 1
+    else
+        sleep 1
+        return 0
     fi
 
     # Create directories if they don't exist
@@ -718,7 +718,7 @@ OpenOrangeStorm configuration script.
 
 Options:
   -y, --yes                  Automatically confirm all prompts (non-interactive mode).
-  --printer_model=MODEL      Specify the printer model (e.g., n4, n4pro, n4plus / n4max).
+  --printer_model=MODEL      Specify the printer model (e.g., giga).
   --motor_current=VALUE      Specify the stepper motor current (e.g., 0.8, 1.2).
   --pcb_version=VALUE        Specify the PCB version (e.g., 1.0, 1.1).
   -h, --help                 Display this help message and exit.
