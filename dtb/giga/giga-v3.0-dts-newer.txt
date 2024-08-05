@@ -360,32 +360,32 @@
 
 		opp-408000000 {
 			opp-hz = <0x00 0x18519600>;
-			opp-microvolt = <0xe7ef0>;
+			opp-microvolt = <0xf4240>;
 			clock-latency-ns = <0x9c40>;
 			opp-suspend;
 		};
 
 		opp-600000000 {
 			opp-hz = <0x00 0x23c34600>;
-			opp-microvolt = <0xe7ef0>;
+			opp-microvolt = <0xf4240>;
 			clock-latency-ns = <0x9c40>;
 		};
 
 		opp-816000000 {
 			opp-hz = <0x00 0x30a32c00>;
-			opp-microvolt = <0xf4240>;
+			opp-microvolt = <0x100590>;
 			clock-latency-ns = <0x9c40>;
 		};
 
 		opp-1008000000 {
 			opp-hz = <0x00 0x3c14dc00>;
-			opp-microvolt = <0x10c8e0>;
+			opp-microvolt = <0x118c30>;
 			clock-latency-ns = <0x9c40>;
 		};
 
 		opp-1200000000 {
 			opp-hz = <0x00 0x47868c00>;
-			opp-microvolt = <0x12b128>;
+			opp-microvolt = <0x137478>;
 			clock-latency-ns = <0x9c40>;
 		};
 
@@ -393,6 +393,7 @@
 			opp-hz = <0x00 0x4d3f6400>;
 			opp-microvolt = <0x13d620>;
 			clock-latency-ns = <0x9c40>;
+			status = "disabled";
 		};
 	};
 
@@ -640,7 +641,7 @@
 		dmas = <0x12 0x04 0x12 0x05>;
 		dma-names = "tx\0rx";
 		pinctrl-names = "default";
-		pinctrl-0 = <0x23 0x24 0x25>;
+		pinctrl-0 = <0x23>;
 		reg-io-width = <0x04>;
 		reg-shift = <0x02>;
 		status = "okay";
@@ -855,49 +856,23 @@
 		pinctrl-0 = <0x2e 0x2f 0x30>;
 		status = "okay";
 		max-freq = <0x2dc6c00>;
-		cs-gpios = <0x31 0x08 0x01 0x31 0x07 0x01 0x29 0x12 0x01>;
+		cs-gpios = <0x31 0x08 0x01 0x31 0x07 0x01>;
 		phandle = <0x87>;
 
-		spi_for_lcd@0 {
-			compatible = "ilitek,ili9341";
-			pinctrl-names = "default";
-			pinctrl-0 = <0x32>;
+		spi_for_cs0@0 {
 			reg = <0x00>;
-			spi-max-frequency = <0x989680>;
-			bgr;
-			fps = <0x1e>;
-			rotate = <0x10e>;
-			buswidth = <0x08>;
-			status = "disable";
-		};
-
-		spi_for_touch@1 {
-			reg = <0x01>;
-			compatible = "ti,tsc2046";
-			pinctrl-names = "default";
-			pinctrl-0 = <0x33 0x34>;
-			ti,x-max = [0e c0];
-			ti,x-min = [00 a4];
-			ti,y-min = [00 c9];
-			ti,y-max = [0f 4f];
-			ti,x-plate-ohms = [00 28];
-			ti,pressure-max = [00 ff];
-			ti,swap-xy = <0x01>;
-			touchscreen-inverted-y = <0x01>;
-			interrupt-parent = <0x29>;
-			interrupts = <0x16 0x00>;
-			spi-max-frequency = <0x1e8480>;
-			pendown-gpio = <0x29 0x16 0x00>;
-			vcc-supply = <0x1e>;
-			wakeup-source;
-			status = "disable";
-		};
-
-		spi_for_cs2@2 {
-			reg = <0x02>;
 			compatible = "rockchip,spi_test_bus1_cs2";
 			pinctrl-names = "default";
-			pinctrl-0 = <0x35>;
+			pinctrl-0 = <0x32>;
+			spi-max-frequency = <0x4c4b40>;
+			status = "okay";
+		};
+
+		spi_for_cs1@1 {
+			reg = <0x01>;
+			compatible = "rockchip,spi_test_bus1_cs2";
+			pinctrl-names = "default";
+			pinctrl-0 = <0x33>;
 			spi-max-frequency = <0x4c4b40>;
 			status = "okay";
 		};
@@ -1072,22 +1047,23 @@
 
 		opp-786000000 {
 			opp-hz = <0x00 0x2ed96880>;
-			opp-microvolt = <0x106738 0x106738 0xb71b00>;
+			opp-microvolt = <0x112a88 0x112a88 0xb71b00>;
+			status = "disable";
 		};
 
 		opp-798000000 {
 			opp-hz = <0x00 0x2f908380>;
-			opp-microvolt = <0x106738 0x106738 0xb71b00>;
+			opp-microvolt = <0x112a88 0x112a88 0xb71b00>;
 		};
 
 		opp-840000000 {
 			opp-hz = <0x00 0x32116200>;
-			opp-microvolt = <0x106738 0x106738 0xb71b00>;
+			opp-microvolt = <0x112a88 0x112a88 0xb71b00>;
 		};
 
 		opp-924000000 {
 			opp-hz = <0x00 0x37131f00>;
-			opp-microvolt = <0x10c8e0 0x10c8e0 0xb71b00>;
+			opp-microvolt = <0x118c30 0x118c30 0xb71b00>;
 		};
 
 		opp-1068000000 {
@@ -1475,7 +1451,7 @@
 		reset-names = "reset";
 		fifo-depth = <0x100>;
 		max-frequency = <0x8f0d180>;
-		status = "okay";
+		status = "disabled";
 		bus-width = <0x04>;
 		cap-mmc-highspeed;
 		cap-sd-highspeed;
@@ -1487,13 +1463,14 @@
 		sd-uhs-sdr50;
 		sd-uhs-sdr104;
 		vmmc-supply = <0x58>;
-		vqmmc-supply = <0x20>;
 		phandle = <0xa2>;
 	};
 
 	mmc@ff510000 {
 		compatible = "rockchip,rk3328-dw-mshc\0rockchip,rk3288-dw-mshc";
 		reg = <0x00 0xff510000 0x00 0x4000>;
+		pinctrl-names = "default";
+		pinctrl-0 = <0xf1 0xec 0xeb>;
 		interrupts = <0x00 0x0d 0x04>;
 		clocks = <0x02 0x13e 0x02 0x22 0x02 0x4b 0x02 0x4f>;
 		clock-names = "biu\0ciu\0ciu-drive\0ciu-sample";
@@ -1501,8 +1478,13 @@
 		reset-names = "reset";
 		fifo-depth = <0x100>;
 		max-frequency = <0x8f0d180>;
-		status = "disabled";
+		status = "okay";
 		phandle = <0xa3>;
+		cap-sd-highspeed;
+		cap-sdio-irq;
+		non-removable;
+		bus-width = <0x04>;
+		mmc-pwrseq = <0x200>;
 	};
 
 	mmc@ff520000 {
@@ -1685,6 +1667,16 @@
 		#size-cells = <0x02>;
 		ranges;
 		phandle = <0xac>;
+		pinctrl-names = "default";
+		pinctrl-0 = <0x35>;
+
+		rtc {
+
+			rtc-32k {
+				rockchip,pins = <0x01 0x1c 0x01 0x64>;
+				phandle = <0x35>;
+			};
+		};
 
 		gpio@ff210000 {
 			compatible = "rockchip,gpio-bank";
@@ -2553,6 +2545,14 @@
 			};
 		};
 
+		usb3 {
+
+			usb30-host-drv {
+				rockchip,pins = <0x00 0x00 0x00 0x64>;
+				phandle = <0x102>;
+			};
+		};
+
 		sd {
 
 			sdio-vcc-pin {
@@ -2561,27 +2561,34 @@
 			};
 		};
 
-		touchscreen {
+		spi0_cs1 {
 
-			pinctrl_tsc2046_pendown {
-				rockchip,pins = <0x01 0x16 0x00 0x66>;
+			pinctrl_spi0_cs1 {
+				rockchip,pins = <0x03 0x07 0x00 0x66>;
 				phandle = <0x33>;
 			};
 		};
 
-		lcd {
+		sdio-pwrseq {
 
-			pinctrl_ili9341_cs {
-				rockchip,pins = <0x03 0x08 0x00 0x66>;
-				phandle = <0x32>;
+			wifi-enable-h {
+				rockchip,pins = <0x01 0x12 0x00 0x64>;
+				phandle = <0x201>;
 			};
 		};
 
-		spi0_cs2 {
+		wireless-wlan {
 
-			pinctrl_spi0_cs2 {
-				rockchip,pins = <0x01 0x12 0x00 0x66>;
-				phandle = <0x35>;
+			wifi-wake-host {
+				rockchip,pins = <0x01 0x13 0x00 0x66>;
+			};
+		};
+
+		spi0_cs0 {
+
+			pinctrl_spi0_cs0 {
+				rockchip,pins = <0x03 0x08 0x00 0x66>;
+				phandle = <0x32>;
 			};
 		};
 	};
@@ -2611,23 +2618,6 @@
 		phandle = <0x58>;
 	};
 
-	sdmmcio-regulator {
-		compatible = "regulator-gpio";
-		gpios = <0x71 0x14 0x00>;
-		pinctrl-0 = <0x72>;
-		pinctrl-names = "default";
-		states = <0x1b7740 0x00 0x325aa0 0x01>;
-		regulator-name = "vccio_sd";
-		regulator-type = "voltage";
-		regulator-min-microvolt = <0x1b7740>;
-		regulator-max-microvolt = <0x325aa0>;
-		regulator-settling-time-us = <0x1388>;
-		startup-delay-us = <0x7d0>;
-		regulator-always-on;
-		vin-supply = <0x1e>;
-		phandle = <0x20>;
-	};
-
 	vcc-host1-5v-regulator {
 		compatible = "regulator-fixed";
 		enable-active-high;
@@ -2640,12 +2630,41 @@
 		phandle = <0xff>;
 	};
 
+	vcc-host2-5v-regulator {
+		compatible = "regulator-fixed";
+		enable-active-high;
+		gpio = <0x6f 0x00 0x00>;
+		pinctrl-names = "default";
+		pinctrl-0 = <0x102>;
+		regulator-name = "vcc_host2_5v";
+		regulator-always-on;
+		vin-supply = <0x2b>;
+		phandle = <0x103>;
+	};
+
 	vcc-sys {
 		compatible = "regulator-fixed";
 		regulator-name = "vcc_sys";
 		regulator-min-microvolt = <0x4c4b40>;
 		regulator-max-microvolt = <0x4c4b40>;
 		phandle = <0x2b>;
+	};
+
+	wireless-wlan {
+		compatible = "wlan-platdata";
+		rockchip,grf = <0x3f>;
+		sdio_vref = <0xce4>;
+		status = "okay";
+		WIFI,host_wake_irq = <0x29 0x13 0x00>;
+		wifi_chip_type = "rtl8723bs";
+	};
+
+	sdio_pwrseq0 {
+		compatible = "mmc-pwrseq-simple";
+		pinctrl-names = "default";
+		pinctrl-0 = <0x201>;
+		reset-gpios = <0x29 0x12 0x01>;
+		phandle = <0x200>;
 	};
 
 	vcc-phy-regulator {
@@ -2923,19 +2942,24 @@
 		dvp_d2d9_m1 = "/pinctrl/cif-1/dvp-d2d9-m1";
 		pmic_int_l = "/pinctrl/pmic/pmic-int-l";
 		usb20_host_drv = "/pinctrl/usb2/usb20-host-drv";
+		usb30_host_drv = "/pinctrl/usb2/usb30-host-drv";
 		sdio_vcc_pin = "/pinctrl/sd/sdio-vcc-pin";
 		pinctrl_tsc2046_pendown = "/pinctrl/touchscreen/pinctrl_tsc2046_pendown";
 		pinctrl_tsc2046_cs = "/pinctrl/touchscreen/pinctrl_tsc2046_cs";
 		pinctrl_ili9341_cs = "/pinctrl/lcd/pinctrl_ili9341_cs";
-		pinctrl_spi0_cs2 = "/pinctrl/spi0_cs2/pinctrl_spi0_cs2";
+		pinctrl_spi0_cs1 = "/pinctrl/spi0_cs1/pinctrl_spi0_cs1";
+		pinctrl_spi0_cs0 = "/pinctrl/spi0_cs0/pinctrl_spi0_cs0";
 		gmac_clkin = "/external-gmac-clock";
 		vcc_sd = "/sdmmc-regulator";
 		vccio_sd = "/sdmmcio-regulator";
 		vcc_host1_5v = "/vcc-host1-5v-regulator";
 		vcc_otg_5v = "/vcc-host1-5v-regulator";
+		vcc_host2_5v = "/vcc-host2-5v-regulator";
 		vcc_sys = "/vcc-sys";
 		vcc_phy = "/vcc-phy-regulator";
 		power_led = "/leds/led-0";
 		user_led = "/leds/led-1";
+		wifi_enable_h = "/pinctrl/sdio-pwrseq/wifi-enable-h";
+		sdio_pwrseq = "/sdio_pwrseq0";
 	};
 };
