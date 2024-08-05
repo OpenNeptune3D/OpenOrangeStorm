@@ -10,7 +10,7 @@ CROWSNEST_FIX_INSTALLER="${HOME}/OpenOrangeStorm/img-config/crowsnest-lag-fix.sh
 BASE_IMAGE_INSTALLER="${HOME}/OpenOrangeStorm/img-config/base_image_configuration.sh"
 
 FLAG_FILE="/boot/.OpenOrangeStorm.txt"
-MODEL_FROM_FLAG=$(grep -E '^OS|^os' "$FLAG_FILE")
+MODEL_FROM_FLAG=$(grep -E '^GIGA|^giga' "$FLAG_FILE")
 KERNEL_FROM_FLAG=$(grep 'Linux' "$FLAG_FILE" | awk '{split($3,a,"-"); print a[1]}')
 
 OpenOrangeStorm_REPO="https://github.com/OpenNeptune3D/OpenOrangeStorm.git"
@@ -378,7 +378,7 @@ check_and_set_printer_model() {
     if [ -z "$MODEL_FROM_FLAG" ]; then
         echo "Model Flag is empty. Running Set Model script..."
         $HOME/OpenOrangeStorm/img-config/set-printer-model.sh
-        MODEL_FROM_FLAG=$(grep '^OS' "$FLAG_FILE")
+        MODEL_FROM_FLAG=$(grep '^GIGA' "$FLAG_FILE")
         if [ -z "$MODEL_FROM_FLAG" ]; then
             echo "Failed to set Model Flag. Exiting."
             exit 1
