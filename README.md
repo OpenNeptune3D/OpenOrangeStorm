@@ -30,10 +30,8 @@ Phillip Thelen, barrenechea, SQUIRRELYMOOSE, DanDonut & Jaerax
 - Custom Armbian Image (24.2.0 Bookworm with Linux kernel 6.1.67) ([Credit](https://github.com/halfmanbear/Armbian-ZNP-K1-build))
 - Klipper v0.12 installed + Easy MCU flash 
 - Updatable services, packages & firmware (No need for Elegoo Firmware Updates going forward)
-#- TouchScreen Support BETA (More responsive)
 - All Elegoo Services Removed (No Z-Axis Issues)
 - Orca Slicer Profiles Provided
-- Adaptive Meshing Configured
 - Easy WiFi config
 - Simplified and highly modified printer.cfg
 - Preconfigured LED, Bed Leveling & PID Calibration Macros
@@ -42,13 +40,12 @@ Phillip Thelen, barrenechea, SQUIRRELYMOOSE, DanDonut & Jaerax
 - Firmware Retraction configured
 - Linux Host CPU & MCU temperature monitoring in Fluidd
 - Improved mainboard cooling/fan control
-#- Crowsnest V4.X (Main) w/ ustreamer (Webcam service)
   
 ---
 
 #<div style="text-align: center;">
-#  <img src="pictures/main-page.png" width="450" alt="OpenNept4une Main-Page" style="margin-right: 10px;">
-#  <img src="pictures/advanced-page.png" width="450" alt="OpenNept4une Advanced-Page">
+#  <img src="pictures/main-page.png" width="450" alt="OpenOrangeStorm Main-Page" style="margin-right: 10px;">
+#  <img src="pictures/advanced-page.png" width="450" alt="OpenOrangeStorm Advanced-Page">
 #</div>
 
 ---
@@ -56,14 +53,12 @@ Phillip Thelen, barrenechea, SQUIRRELYMOOSE, DanDonut & Jaerax
 ### Included Projects: 
   - [Armbian](https://github.com/armbian/build)
   - [(Fork) Armbian-ZNP-K1-build base image](https://github.com/OpenNeptune3D/Armbian-ZNP-K1-build)
-  - [display_connector](https://github.com/OpenNeptune3D/display_connector)
   - [KAMP (Klipper-Adaptive-Meshing-Purging)](https://github.com/kyleisah/Klipper-Adaptive-Meshing-Purging)
   - [kiauh (Klipper Installation And Update Helper)](https://github.com/dw-0/kiauh)
   - [Klipper](https://github.com/Klipper3d/klipper)
   - [moonraker](https://github.com/Arksine/moonraker)
   - [fluidd:](https://github.com/fluidd-core/fluidd)
   - [mainsail](https://github.com/mainsail-crew/mainsail)
-  - [crowsnest](https://github.com/mainsail-crew/crowsnest)
   - [mobileraker](https://github.com/Clon1998/mobileraker)
 
 
