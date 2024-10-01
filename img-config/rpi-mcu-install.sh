@@ -49,9 +49,9 @@ if [[ "$mcu_choice" == "STM32" ]] || [[ "$mcu_choice" == "All" ]]; then
         # Remove old files in previous parent directory
         rm ~/printer_data/config/X_4.bin > /dev/null 2>&1
         rm ~/printer_data/config/elegoo_k1.bin > /dev/null 2>&1
+        rm ~/printer_data/config/ZNP_GIGA.bin > /dev/null 2>&1
 
-        cp ~/klipper/out/klipper.bin ~/printer_data/config/Firmware/X_4.bin
-        cp ~/klipper/out/klipper.bin ~/printer_data/config/Firmware/elegoo_k1.bin
+        cp ~/klipper/out/klipper.bin ~/printer_data/config/Firmware/ZNP_GIGA.bin
 
         clear
         # Display instructions for downloading the firmware
@@ -60,14 +60,14 @@ if [[ "$mcu_choice" == "STM32" ]] || [[ "$mcu_choice" == "All" ]]; then
         echo -e "\nTo download firmware files:"
         echo "1. Visit: http://$ip_address/#/configure"
         echo "2. Click the Firmware folder in the left Config list"
-        echo "3. Right-click and Download 'X_4.bin' and 'elegoo_k1.bin'"
-        echo "   Then copy both to a FAT32 formatted microSD card."
+        echo "3. Right-click and Download 'ZNP_GIGA.bin'"
+        echo "   Then copy to a FAT32 formatted microSD card."
         echo ""
         echo -e "\nTo complete the update:"
         echo "1. After this script completes, power off the printer" 
         echo "   Then insert the microSD card."
         echo "2. Power on, and check the MCU version in Fluidd's system tab."
-        echo "3. One of the '.bin' files on the microSD will be renamed to..." 
+        echo "3. The '.bin' file on the microSD will be renamed to..." 
         echo "   '.CUR' if the update was successful."
         echo ""
         echo -e "\nFor printers without external microSD slots:"
