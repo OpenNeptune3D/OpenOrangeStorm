@@ -1,7 +1,7 @@
 <p align="center">
   <img src="pictures/OpenOrangeStorm.png" width="350" alt="OpenOrangeStorm Logo">
   <h1 align="center">OpenOrangeStorm</h1>
-  <h1 align="center">De-Elegoo-izing the Orange Storm Giga 3D Printer</h1>
+  <h1 align="center">De-Elegoo-izing the Orange Storm Giga 3D Printer (ALPHA) </h1>
 </p>
 
 ---
@@ -10,7 +10,7 @@
 
 | 📥 Download | ⚙️ Installation | 💬 Discord Server |
 |---------------------------------------------|---------------------------------------------|--------------------------------------------|
-| [Releases](https://github.com/OpenNeptune3D/OpenOrangeStorm/releases/) | [Wiki](https://github.com/OpenNeptune3D/OpenOrangeStorm/wiki) | [Discord](https://discord.com/invite/X6kwchT6WM) |
+| [ALPHA Releases](https://github.com/OpenNeptune3D/OpenOrangeStorm/releases/) | [Wiki](https://github.com/OpenNeptune3D/OpenOrangeStorm/wiki) | [Discord](https://discord.com/invite/X6kwchT6WM) |
 
 </div>
 
